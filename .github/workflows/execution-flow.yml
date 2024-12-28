@@ -80,6 +80,8 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Output Info on failure
-        run: echo "${{ toJson(github) }}"
+        run: |
+          echo "Something went wrong"
+          echo "${{ toJSON(github) }}"
 
 
