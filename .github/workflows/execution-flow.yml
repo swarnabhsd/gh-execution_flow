@@ -75,10 +75,11 @@ jobs:
       - name: Deploy Code
         run: echo "Deploying...."
   Report:
+    needs: [Lint,Deploy]
     if: failure()
     runs-on: windows-latest
     steps:
       - name: Output Info on failure
-        run: echo ${{ github }}
+        run: echo ${{ toJson(github) }}
 
 
