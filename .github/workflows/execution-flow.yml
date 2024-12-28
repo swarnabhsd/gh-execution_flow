@@ -35,6 +35,7 @@ jobs:
         id: run-tests
         run: npm run test
       - name: Upload Test Report
+        if: failure() && steps.run-tests.conclusion == 'failure'  #if previous step fails in job Test, then this test-report will be generated.
         uses: actions/upload-artifact@v4
         with:
           name: test-report
